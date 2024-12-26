@@ -1,0 +1,117 @@
+.item img{
+    width:64px;
+}
+item{
+    margin: 0px 15px;
+    text-align: center;
+}
+
+.price-filter-container {
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.price-inputs {
+  display: flex;
+  flex-direction: column; /* Aligner verticalement */
+  gap: 15px;
+  margin: 10px 0;
+}
+
+.price-inputs div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.price-input {
+  width: 80px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.apply-btn {
+  margin-top: 15px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: blueviolet;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.apply-btn:hover {
+  background-color: rgb(67, 21, 110);
+}
+
+
+.card{
+    padding:20px;
+    margin: 30px;
+}
+.card img{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 25px;
+    margin-left: 45px;
+    transition: 0.3s ease-in-out;
+}
+.card img:hover{
+    transition: 00.3s ease-in-out;
+    transform: scale(1.1);
+}
+.card-top{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: .25rem;
+}
+.sidebar {
+    border-right: 1px solid #ddd;
+  }
+  
+  .sidebar h4 {
+    font-size: 1.2rem;
+    padding-top: 50px;
+    margin-bottom: 20px;
+    color: blueviolet;
+  }
+  
+  /* Rating buttons */
+.sidebar .d-flex button {
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.sidebar .form-control {
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+/* Rating Filter Dropdown */
+#ratingFilter {
+  margin-bottom: 15px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+
+
+
+
+
+  

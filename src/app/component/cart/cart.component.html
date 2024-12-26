@@ -1,0 +1,61 @@
+<ng-container *ngIf="products.length != 0">
+  <div class="container">
+    <div class="card-table">
+      <div class="card-product">
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th>Sr.No</th>
+              <th>Product Name</th>
+              <th>Product Image</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of products; let i = index;">
+              <td>{{ i + 1 }}</td>
+              <td>{{ item.title }}</td>
+              <td><img style="width: 120px;" [src]="item.image" alt="{{ item.title }}"></td>
+              <td style="width: 25%;">{{ item.description }}</td>
+              <td style="width: 12%;">{{ item.price }} DT</td>
+              <td style="width: 12%;">
+                <div class="quantity-controls">
+                  <button class="btn btn-dark" (click)="updateQuantity(item, 'decrease')">-</button>
+                  <input class="inputbox" type="text" disabled value="{{ item.quantity }}" style="width: 25px">
+                  <button class="btn btn-dark" (click)="updateQuantity(item, 'increase')">+</button>
+                </div>
+              </td>
+              
+              <td style="width: 12%;">{{ item.total | number:'1.1-1'}} DT</td>
+              <td>
+                <button (click)="removeItem(item)" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="4"></td>
+              <td><button (click)="emptyCart()" class="btn btn-danger">Empty Cart</button></td>
+              <td><button class="btn btn-primary" routerLink="/products">Shop More</button></td>
+              <td><button class="btn btn-success" routerLink="/auth" (click)="checkout()">Checkout</button></td>
+              <!-- Display the grand total with one decimal place -->
+              <td><strong>Grand Total:</strong> {{ grandTotal | number:'1.1-1' }} DT</td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<!-- Empty Cart -->
+<ng-container *ngIf="products.length == 0">
+  <div class="center">
+    <h4>Your cart is empty!</h4>
+    <h6>Add items to it now!</h6>
+    <button routerLink="/products" class="btn btn-success">Shop Now</button>
+  </div>
+</ng-container>

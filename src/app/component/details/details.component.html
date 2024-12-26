@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="product-box">
+        <div class="row">
+            <!-- Product Image -->
+            <div class="col-md-5 col-sm-12 product-image">
+                <img class="img-fluid" src="{{ item.image }}" alt="{{ item.title }}">
+            </div>
+
+            <!-- Product Details -->
+            <div class="col-md-7 col-sm-12 product-info">
+                <div class="info">
+                    <ul class="list-unstyled">
+                        <li><strong>Title:</strong> {{ item.title }}</li>
+                        <li><strong>Category:</strong> {{ item.category }}</li>
+                        <li><strong>Description:</strong> {{ item.description }}</li>
+                        <li><strong>Rating:</strong> {{ item.rating.rate }} <i class="fas fa-star"></i> ({{ item.rating.count }} reviews)</li>
+                        <li><strong>Price:</strong> {{ item.price }} DT</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

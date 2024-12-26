@@ -1,0 +1,22 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-5 shadow-lg ticket-container" style="max-width: 500px; width: 100%;">
+    <h2 class="text-center mb-4">✅ Paiement Confirmé</h2>
+    
+    <div class="text-center mb-4">
+      <p class="lead">Merci pour votre achat !</p>
+      <p><strong>Référence de transaction :</strong> {{ transactionReference }}</p>
+      <p><strong>Montant :</strong> {{ grandTotal }} DT</p>
+      <p><strong>Carte :</strong> **{{ maskedCardNumber }}</p>
+      <p><strong>Date d'expiration :</strong> {{ expiryDate }}</p>
+    </div>
+
+    <div class="mb-4">
+      <h5>Votre e-mail</h5>
+      <p>{{ email }}</p>
+    </div>
+
+    <div class="text-center">
+      <button class="btn btn-primary" (click)="goBack()">Retour à l'accueil</button>
+    </div>
+  </div>
+</div>

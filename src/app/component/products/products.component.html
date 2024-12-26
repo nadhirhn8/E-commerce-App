@@ -1,0 +1,93 @@
+<!-- Sidebar Container -->
+<div class="sidebar" style="width: 250px; position: fixed; top: 0; left: 0; height: 100%; background-color: #f8f9fa; padding: 20px; box-shadow: 2px 0 5px rgba(0,0,0,0.1);">
+  <h4>Filters</h4>
+
+  <!-- Category Dropdown -->
+  <div style="margin-bottom: 20px;">
+    <b><label for="categoryFilter">Categories:</label></b> 
+    <select
+      id="categoryFilter"
+      class="form-control"
+      (change)="filterCategory($event)"
+      [(ngModel)]="selectedCategory"
+    >
+      <option value="All" selected>All</option>
+      <option value="{{ option }}" *ngFor="let option of categoryList">
+        {{ option }}
+      </option>
+    </select>
+  </div>
+  <!-- Rating Filter -->
+<div style="margin-bottom: 20px;">
+  <b><label for="ratingFilter">Minimum Rating:</label></b>
+  <select
+    id="ratingFilter"
+    class="form-control"
+    [(ngModel)]="selectedRating"
+    (change)="applyFilters()"
+  >
+    <option value="0">All Ratings</option>
+    <option value="1">1 Star & Above</option>
+    <option value="2">2 Stars & Above</option>
+    <option value="3">3 Stars & Above</option>
+    <option value="4">4 Stars & Above</option>
+    <option value="5">5 Stars Only</option>
+  </select>
+</div>
+
+
+  <!-- Price Range Slider -->
+  <div class="price-filter-container">
+    <b><label>Price Range:</label></b>
+    <div class="price-inputs">
+      <div>
+        <label>Min Price:</label>
+        <input 
+          type="number" 
+          [(ngModel)]="selectedMinPrice"
+          [min]="minPrice"
+          [max]="selectedMaxPrice"
+          class="price-input"
+        />
+        DT
+      </div>
+      <div>
+        <label>Max Price:</label>
+        <input 
+          type="number" 
+          [(ngModel)]="selectedMaxPrice"
+          [min]="selectedMinPrice"
+          [max]="maxPrice"
+          class="price-input"
+        />
+        DT
+      </div>
+    </div>
+    <button (click)="applyFilters()" class="apply-btn">Apply Filter</button>
+  </div>
+  
+  
+  
+</div>
+
+<!-- Main Content -->
+
+<div class="container" style="margin-left: 500px; padding-top: 20px;">
+  <div class="row">
+    <ng-container *ngFor="let item of filteredProductList">
+      <div class="card col-md-3">
+        <img [src]="item.image" alt="Product Image" routerLink="/details/{{ item.id }}">
+        <h5 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">
+          {{ item.title }}
+        </h5>
+        <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">
+          {{ item.description }}
+        </p>
+        <p><strong>Price:</strong>&nbsp; <span style="color: blueviolet;">{{ item.price }} DT</span>
+        </p>
+        <p *ngIf="item.discount > 0"><strong>Discount:</strong> {{ item.discount }}%</p>
+        <button class="btn btn-outline-dark" (click)="addtocart(item)">Add To Cart</button><br>
+      </div>
+    </ng-container>
+  </div>
+</div>
